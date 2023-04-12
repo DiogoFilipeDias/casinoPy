@@ -29,18 +29,32 @@ def get_text():
             def get_text3():
                 cor_roleta_entry = cor_roleta.get()
                 cor_roleta_final = cor_roleta_entry
-                global cor_roleta_final
+            global cor_roleta_final
+
+            def jogarRoleta():
+                if valor_roleta_final == "2" and cor_roleta_final == "preto":
+                    winLoose = tk.Label(text="Ganhou")
+                elif valor_roleta_final == "1" and cor_roleta_final == "vermelho":
+                    winLoose=tk.Label(text="Gannhou")
+                else:
+                    winLoose=tk.Label(text="Perdeu")
 
 
 
             roletaJogo = tk.Toplevel(games)
             roletaJogo.geometry("800x800")
+            numeroRoleta= tk.Label(roletaJogo,text="Número da Roleta")
+            numeroRoleta.pack()
             valor_roleta = tk.Entry(roletaJogo)
             valor_roleta.pack()
+            corRoleta = tk.Label(roletaJogo,text="Cor do Valor")
+            corRoleta.pack()
             cor_roleta = tk.Entry(roletaJogo)
             cor_roleta.pack()
-            btApostar=tk.Button(roletaJogo,text="APOSTAR", command=lambda: [get_text2(),])
+            btApostar=tk.Button(roletaJogo,text="APOSTAR")
             btApostar.pack()
+
+
             resultadoRoleta = tk.Label(roletaJogo, text="Resultado da Roleta")
             resultadoRoleta.pack()
 
