@@ -8,6 +8,11 @@ def run_roleta():
 def roletaImagem(event):
     run_roleta()
 
+def run_slot():
+    subprocess.run(['python', 'slot.py'])
+def slotImagem(event):
+    run_slot()
+
 def get_text():
     #verificar idade
     text_box_value=text_box.get()
@@ -17,8 +22,13 @@ def get_text():
         games.geometry("800x800")
         label4 = tk.Label(games,text="Bem vindo ao Casino Online")
         label4.pack()
+        slotIMG = tk.PhotoImage(file="imgs/slot.png")
+        small_slot = slotIMG.subsample(3, 3)
+        label6 = tk.Label(games, image=small_slot)
+        label6.bind("<Button-1>", slotImagem)
+        label6.pack()
         roletaIMG = tk.PhotoImage(file="imgs/roletaimg.png")
-        small_roleta = roletaIMG.subsample(2,2)
+        small_roleta = roletaIMG.subsample(2, 2)
         label5=tk.Label(games, image=small_roleta)
         label5.bind("<Button-1>", roletaImagem)
         label5.pack()
